@@ -1,0 +1,46 @@
+{
+    "_version": "1.85.0",
+    "sap.app": {
+        "id": "com.raunk.products",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "applicationVersion": {
+            "version": "1.0.0"
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "deviceTypes": {
+            "desktop": true,
+            "phone": true,
+            "tablet": true
+        }
+    },
+    "sap.ui5": {
+        "rootView": {
+            "viewName":"com.raunak.products.view.App",
+            "type": "XML"
+        },
+        "dependencies": {
+            "minUi5Version": "1.147.0",
+            "libs": {
+                "sap.ui.core": {},
+                "sap.m": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "com.raunak.products.i18n.i18n"
+                }
+            }
+        }
+    }
+}
