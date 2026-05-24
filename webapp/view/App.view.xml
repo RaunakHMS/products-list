@@ -3,6 +3,7 @@
     displayBlock="true"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
 >
     <Shell>
         <App>
@@ -10,12 +11,50 @@
                 title="{i18n>appTitle}"
                 class="sapUiResponsiveContentPadding"
             >
-                <Input
-                    id="idProductName"
-                    placeholder="{i18n>productInputPlaceHolder}"
-                    width="20rem"
-                    maxLength="40"
-                />
+                <VBox>
+                    <Input
+                        id="idProductName"
+                        placeholder="{i18n>productInputPlaceHolder}"
+                        width="20rem"
+                        maxLength="40"
+                    />
+                    <ComboBox
+                        id="idCategory"
+                        placeholder="{i18n>categoryDropDown}"
+                    >
+                        <items>
+                            <core:Item
+                                key=""
+                                text=""
+                            />
+                            <core:Item
+                                key="1"
+                                text="Food"
+                            />
+                            <core:Item
+                                key="2"
+                                text="Beverages"
+                            />
+                            <core:Item
+                                key="3"
+                                text="Electronics"
+                            />
+                        </items>
+                    </ComboBox>
+                    <Input
+                        id="idPrice"
+                        placeholder="{i18n>productPricePlaceHolder}"
+                        type="Number"
+                    />
+                    <DatePicker
+                        id="idReleaseDate"
+                        placeholder="{i18n>producutReleaseDatePlaceHolder}"
+                    />
+                    <DatePicker
+                        id="idDisconDate"
+                        placeholder="{i18n>productDisconDate}"
+                    />
+                </VBox>
                 <Button
                     text="{i18n>createNewProductButton}"
                     press="onPressAddToCart"
@@ -34,12 +73,22 @@
                             numberUnit="INR"
                         >
                             <attributes>
-                                <ObjectAttribute text="Category" title="Electronis"></ObjectAttribute>
-                                <ObjectAttribute text="2025/09/02" title="Release Date"></ObjectAttribute>
+                                <ObjectAttribute
+                                    text="Category"
+                                    title="Electronis"
+                                />
+                                <ObjectAttribute
+                                    text="2025/09/02"
+                                    title="Release Date"
+                                />
                             </attributes>
                             <firstStatus>
-                            
-                            <ObjectStatus title="Stock" text="Available" state="Success" ></ObjectStatus></firstStatus>
+                                <ObjectStatus
+                                    title="Stock"
+                                    text="Available"
+                                    state="Success"
+                                />
+                            </firstStatus>
                         </ObjectListItem>
                     </items>
                 </List>
