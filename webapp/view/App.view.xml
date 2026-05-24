@@ -5,19 +5,13 @@
     xmlns:mvc="sap.ui.core.mvc"
 >
     <Shell>
-        <app>
-            <App>
-                <pages>
-                    <Page title="{i18n>appTitle}">
-                        <content>
-                            <Button
-                                text="{i18n>cartButtonText}"
-                                press="onPressAddToCart"
-                            />
-                        </content>
-                    </Page>
-                </pages>
-            </App>
-        </app>
+        <App>
+            <Page title="{i18n>appTitle}">
+                <Button
+                    text="{i18n>cartButtonText}"
+                    press="onPressAddToCart"
+                />
+            </Page>
+        </App>
     </Shell>
 </mvc:View>
