@@ -1,8 +1,23 @@
 <mvc:View
     controllerName="com.raunak.products.controller.App"
-    displayBlock="true" 
+    displayBlock="true"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
 >
-    <Button text="{i18n>cartButtonText}" press="onPressAddToCart"/>
+    <Shell>
+        <app>
+            <App>
+                <pages>
+                    <Page title="{i18n>appTitle}">
+                        <content>
+                            <Button
+                                text="{i18n>cartButtonText}"
+                                press="onPressAddToCart"
+                            />
+                        </content>
+                    </Page>
+                </pages>
+            </App>
+        </app>
+    </Shell>
 </mvc:View>
