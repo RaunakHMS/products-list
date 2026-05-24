@@ -65,33 +65,7 @@
                     noDataText="{i18n>noProductsText}"
                     mode="Delete"
                     delete="onProductDelete"
-                >
-                    <items>
-                        <ObjectListItem
-                            title="S25 Ultra"
-                            number="999"
-                            numberUnit="INR"
-                        >
-                            <attributes>
-                                <ObjectAttribute
-                                    text="Category"
-                                    title="Electronis"
-                                />
-                                <ObjectAttribute
-                                    text="2025/09/02"
-                                    title="Release Date"
-                                />
-                            </attributes>
-                            <firstStatus>
-                                <ObjectStatus
-                                    title="Stock"
-                                    text="Available"
-                                    state="Success"
-                                />
-                            </firstStatus>
-                        </ObjectListItem>
-                    </items>
-                </List>
+                />
             </Page>
         </App>
     </Shell>
