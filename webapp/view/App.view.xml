@@ -6,11 +6,41 @@
 >
     <Shell>
         <App>
-            <Page title="{i18n>appTitle}">
+            <Page
+                title="{i18n>appTitle}"
+                class="sapUiResponsiveContentPadding"
+            >
+                <Input
+                    id="idProductName"
+                    placeholder="{i18n>productInputPlaceHolder}"
+                    width="20rem"
+                    maxLength="40"
+                />
                 <Button
-                    text="{i18n>cartButtonText}"
+                    text="{i18n>createNewProductButton}"
                     press="onPressAddToCart"
                 />
+                <List
+                    id="idProductList"
+                    headerText="{i18n>listHeaderText}"
+                    noDataText="{i18n>noProductsText}"
+                    mode="Delete"
+                    delete="onProductDelete"
+                >
+                    <items>
+                        <ObjectListItem
+                            title="S25 Ultra"
+                            number="999"
+                            numberUnit="INR"
+                        >
+                            <attributes>
+                                <ObjectAttribute text="Category" title="Electronis"></ObjectAttribute>
+                                <ObjectAttribute text="2025/09/02" title="Release Date"></ObjectAttribute>
+                            </attributes>
+                            
+                        </ObjectListItem>
+                    </items>
+                </List>
             </Page>
         </App>
     </Shell>
