@@ -4,6 +4,7 @@
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
 >
     <Shell>
         <App>
@@ -11,13 +12,19 @@
                 title="{i18n>appTitle}"
                 class="sapUiResponsiveContentPadding"
             >
-                <VBox>
+                <form:SimpleForm
+                    editable="true"
+                    layout="ResponsiveGridLayout"
+                    breakpointM="600"
+                    breakpointL="1024"
+                    breakpointXL="1440"
+                >
+                    <Label text="{i18n>productInputPlaceHolder}" />
                     <Input
                         id="idProductName"
                         placeholder="{i18n>productInputPlaceHolder}"
-                        width="20rem"
-                        maxLength="40"
                     />
+                    <Label text="{i18n>categoryDropDown}" />
                     <ComboBox
                         id="idCategory"
                         placeholder="{i18n>categoryDropDown}"
@@ -41,23 +48,20 @@
                             />
                         </items>
                     </ComboBox>
+                    <Label text="{i18n>productPricePlaceHolder}" />
                     <Input
                         id="idPrice"
-                        placeholder="{i18n>productPricePlaceHolder}"
                         type="Number"
                     />
-                    <DatePicker
-                        id="idReleaseDate"
-                        placeholder="{i18n>producutReleaseDatePlaceHolder}"
-                    />
-                    <DatePicker
-                        id="idDisconDate"
-                        placeholder="{i18n>productDisconDate}"
-                    />
-                </VBox>
+                    <Label text="{i18n>producutReleaseDatePlaceHolder}" />
+                    <DatePicker id="idReleaseDate" />
+                    <Label text="{i18n>productDisconDate}" />
+                    <DatePicker id="idDisconDate" />
+                </form:SimpleForm>
                 <Button
                     text="{i18n>createNewProductButton}"
                     press="onPressAddToCart"
+                    type="Emphasized"
                 />
                 <List
                     id="idProductList"
