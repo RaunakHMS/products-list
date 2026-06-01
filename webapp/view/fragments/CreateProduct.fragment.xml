@@ -1,0 +1,94 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+>
+    <Dialog title="{i18n>createNewProductDialogTitle}">
+        <content>
+            <form:SimpleForm
+                editable="true"
+                layout="ResponsiveGridLayout"
+                breakpointM="600"
+                breakpointL="1024"
+                breakpointXL="1440"
+                emptySpanL="1"
+                emptySpanXL="1"
+                labelSpanS="12"
+                labelSpanM="3"
+                labelSpanL="4"
+                labelSpanXL="4"
+                columnsL="2"
+                columnsXL="2"
+            >
+                <core:Title text="{i18n>productDetailsTitle}" />
+                <Label text="{i18n>productInputPlaceHolder}" />
+                <Input
+                    id="idProductName"
+                    placeholder="{i18n>productInputPlaceHolder}"
+                />
+                <Label text="{i18n>categoryDropDown}" />
+                <ComboBox
+                    id="idCategory"
+                    placeholder="{i18n>categoryDropDown}"
+                >
+                    <items>
+                        <core:Item
+                            key=""
+                            text=""
+                        />
+                        <core:Item
+                            key="1"
+                            text="Food"
+                        />
+                        <core:Item
+                            key="2"
+                            text="Beverages"
+                        />
+                        <core:Item
+                            key="3"
+                            text="Electronics"
+                        />
+                    </items>
+                </ComboBox>
+                <Label text="{i18n>productPricePlaceHolder}" />
+                <Input
+                    id="idPrice"
+                    type="Number"
+                />
+                <Input
+                    value="INR"
+                    editable="false"
+                >
+                    <layoutData>
+                        <l:GridData span="XL1 L2 M3 S12" />
+                    </layoutData>
+                </Input>
+                <core:Title text="{i18n>datesTitle}" />
+                <Label text="{i18n>producutReleaseDatePlaceHolder}" />
+                <DatePicker id="idReleaseDate" />
+                <Label text="{i18n>productDisconDate}" />
+                <DatePicker id="idDisconDate" />
+                <Button
+                    text="{i18n>createNewProductButton}"
+                    press="onPressAddToCart"
+                    type="Emphasized"
+                />
+            </form:SimpleForm>
+        </content>
+        <beginButton>
+            <Button
+                text="{i18n>createNewProductButton}"
+                press="onPressAddToCart"
+                type="Emphasized"
+            />
+        </beginButton>
+        <endButton>
+            <Button
+                text="{i18n>cancelDialog}"
+                press="onPressCancelCreateProduct"
+                type="Default"
+            />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

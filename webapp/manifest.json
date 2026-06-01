@@ -1,7 +1,7 @@
 {
     "_version": "1.85.0",
     "sap.app": {
-        "id": "com.raunk.products",
+        "id": "com.raunak.products",
         "type": "application",
         "i18n": "i18n/i18n.properties",
         "title": "{{appTitle}}",

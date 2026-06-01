@@ -45,6 +45,9 @@ sap.ui.define([
                 this.getView().byId("idProductList").removeItem(oItem);
             },
 
+            onPressAddNewProduct: function (oEvent) {
+            },
+
             _getAvailabilityText(oDate) {
                 return oDate > new Date() ? "Available" : "UnAvailable";
             },
