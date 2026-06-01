@@ -4,9 +4,10 @@ sap.ui.define([
     "sap/m/ObjectListItem",
     "sap/m/ObjectAttribute",
     "sap/m/ObjectStatus",
-    "sap/ui/core/ValueState"
+    "sap/ui/core/ValueState",
+    "sap/ui/core/Fragment"
 ],
-    function (Controller, MessageToast, ObjectListItem, ObjectAttribute, ObjectStatus, ValueState) {
+    function (Controller, MessageToast, ObjectListItem, ObjectAttribute, ObjectStatus, ValueState, Fragment) {
         'use strict'
 
         return Controller.extend("com.raunak.products.controller.App", {
@@ -37,7 +38,9 @@ sap.ui.define([
                         text: this._getAvailabilityText(sDisconDate),
                         state: this._getAvailabilityState(sDisconDate)
                     })
-                }))
+                }));
+
+                this._oCreateProductDialog.close();
             },
 
             onProductDelete: function (oEvent) {
@@ -46,6 +49,25 @@ sap.ui.define([
             },
 
             onPressAddNewProduct: function (oEvent) {
+                //load the fragment as a dialog
+
+                if (!this._oCreateProductDialog) {
+                    Fragment.load({
+                        id: this.getView().getId(),
+                        name: "com.raunak.products.view.fragments.CreateProduct",
+                        controller: this
+                    }).then(oDialog => {
+                        this._oCreateProductDialog = oDialog;
+                        this.getView().addDependent(oDialog);
+                        oDialog.open();
+                    })
+                } else {
+                    this._oCreateProductDialog.open();
+                }
+            },
+
+            onPressCancelCreateDialog: function (oEvent) {
+                this._oCreateProductDialog.close();
             },
 
             _getAvailabilityText(oDate) {

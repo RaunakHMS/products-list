@@ -4,7 +4,7 @@
     xmlns="sap.m"
     xmlns:form="sap.ui.layout.form"
 >
-    <Dialog title="{i18n>createNewProductDialogTitle}">
+    <Dialog title="{i18n>createNewProductDialogTitle}" contentWidth="800px">
         <content>
             <form:SimpleForm
                 editable="true"
@@ -69,16 +69,11 @@
                 <DatePicker id="idReleaseDate" />
                 <Label text="{i18n>productDisconDate}" />
                 <DatePicker id="idDisconDate" />
-                <Button
-                    text="{i18n>createNewProductButton}"
-                    press="onPressAddToCart"
-                    type="Emphasized"
-                />
             </form:SimpleForm>
         </content>
         <beginButton>
             <Button
-                text="{i18n>createNewProductButton}"
+                text="{i18n>createDialog}"
                 press="onPressAddToCart"
                 type="Emphasized"
             />
@@ -86,7 +81,7 @@
         <endButton>
             <Button
                 text="{i18n>cancelDialog}"
-                press="onPressCancelCreateProduct"
+                press="onPressCancelCreateDialog"
                 type="Default"
             />
         </endButton>

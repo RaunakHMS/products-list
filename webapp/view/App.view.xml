@@ -11,7 +11,7 @@
                 title="{i18n>appTitle}"
                 class="sapUiResponsiveContentPadding"
             >
-                <core:Fragment type="XML" fragmentName="com.raunak.products.view.fragments.CreateProduct"/>
+                <!-- <core:Fragment type="XML" fragmentName="com.raunak.products.view.fragments.CreateProduct"/> -->
                 <List
                     id="idProductList"
                     noDataText="{i18n>noProductsText}"
