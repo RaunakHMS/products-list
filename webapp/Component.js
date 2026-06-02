@@ -1,4 +1,6 @@
-sap.ui.define(["sap/ui/core/UIComponent"], function (UIComponent) {
+sap.ui.define(["sap/ui/core/UIComponent",
+    "com/raunak/products/model/models"
+], function (UIComponent, models) {
     'use strict'
 
     return UIComponent.extend("com.raunak.products.Component", {
@@ -8,6 +10,9 @@ sap.ui.define(["sap/ui/core/UIComponent"], function (UIComponent) {
         },
         init: function () {
             UIComponent.prototype.init.apply(this, arguments);
+
+            // set the input model
+            this.setModel(models.createInputModel(), "input");
         }
     })
 })
