@@ -1,7 +1,7 @@
-sap.ui.define(["sap/ui/model/json/JSONMOdel"], function (JSONMOdel) {
+sap.ui.define(["sap/ui/model/json/JSONModel"], function (JSONModel) {
     return {
         createInputModel(){
-            return new JSONMOdel({
+            return new JSONModel({
                 Name: "",
                 Category: "", 
                 Price: "",

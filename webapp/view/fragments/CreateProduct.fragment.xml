@@ -4,7 +4,7 @@
     xmlns="sap.m"
     xmlns:form="sap.ui.layout.form"
 >
-    <Dialog title="{i18n>createNewProductDialogTitle}" contentWidth="800px">
+    <Dialog title="{i18n>createNewProductDialogTitle}" contentWidth="800px" afterClose="onAfterCreateProductDialogClose">
         <content>
             <form:SimpleForm
                 editable="true"
@@ -26,11 +26,13 @@
                 <Input
                     id="idProductName"
                     placeholder="{i18n>productInputPlaceHolder}"
+                    value="{input>/Name}"
                 />
                 <Label text="{i18n>categoryDropDown}" />
                 <ComboBox
                     id="idCategory"
                     placeholder="{i18n>categoryDropDown}"
+                    value="{input>/Category}"
                 >
                     <items>
                         <core:Item
@@ -55,6 +57,7 @@
                 <Input
                     id="idPrice"
                     type="Number"
+                    value="{input>/Price}"
                 />
                 <Input
                     value="INR"
@@ -66,9 +69,9 @@
                 </Input>
                 <core:Title text="{i18n>datesTitle}" />
                 <Label text="{i18n>producutReleaseDatePlaceHolder}" />
-                <DatePicker id="idReleaseDate" />
+                <DatePicker id="idReleaseDate" value="{input>/ReleaseDate}"/>
                 <Label text="{i18n>productDisconDate}" />
-                <DatePicker id="idDisconDate" />
+                <DatePicker id="idDisconDate" value="{input>/DiscontinuedDate}"/>
             </form:SimpleForm>
         </content>
         <beginButton>

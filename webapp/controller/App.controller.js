@@ -5,9 +5,10 @@ sap.ui.define([
     "sap/m/ObjectAttribute",
     "sap/m/ObjectStatus",
     "sap/ui/core/ValueState",
-    "sap/ui/core/Fragment"
+    "sap/ui/core/Fragment",
+    "com/raunak/products/model/models"
 ],
-    function (Controller, MessageToast, ObjectListItem, ObjectAttribute, ObjectStatus, ValueState, Fragment) {
+    function (Controller, MessageToast, ObjectListItem, ObjectAttribute, ObjectStatus, ValueState, Fragment, models) {
         'use strict'
 
         return Controller.extend("com.raunak.products.controller.App", {
@@ -64,6 +65,11 @@ sap.ui.define([
                 } else {
                     this._oCreateProductDialog.open();
                 }
+            },
+
+            onAfterCreateProductDialogClose: function (oEvent) {
+                // set a fresh model to reset values of the view.
+                this.getOwnerComponent().setModel(models.createInputModel(), "input");
             },
 
             onPressCancelCreateDialog: function (oEvent) {
