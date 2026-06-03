@@ -17,6 +17,7 @@
                     noDataText="{i18n>noProductsText}"
                     mode="Delete"
                     delete="onProductDelete"
+                    items="{product>/items}"
                 >
                     <headerToolbar>
                         <Toolbar>
@@ -25,6 +26,19 @@
                             <Button icon="sap-icon://add" press="onPressAddNewProduct"></Button>
                         </Toolbar>
                     </headerToolbar>
+                    <ObjectListItem title="{product>Name}" number="{product>Price}" 
+                        numberUnit="{product>Currency}">
+                        <attributes>
+                            <ObjectAttribute title="Category" text="{product>Category}"></ObjectAttribute>
+                            <ObjectAttribute title="Release Date" text="{product>ReleaseDate}"></ObjectAttribute>
+                        </attributes>
+                        <firstStatus>
+                            <ObjectStatus 
+                                title="Stock"
+                                text="{product>DiscontinuedDate}"
+                            ></ObjectStatus>
+                        </firstStatus>
+                    </ObjectListItem>
                 </List>
             </Page>
         </App>

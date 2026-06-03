@@ -40,6 +40,10 @@
                 "settings": {
                     "bundleName": "com.raunak.products.i18n.i18n"
                 }
+            },
+            "product":{
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "model/Products.json"
             }
         },
         "resources": {
