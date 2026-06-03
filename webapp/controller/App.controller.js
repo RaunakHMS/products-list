@@ -13,31 +13,27 @@ sap.ui.define([
 
         return Controller.extend("com.raunak.products.controller.App", {
 
-            onPressAddToCart: function () {
-                const sProductName = this.getView().byId("idProductName").getValue();
-                const oCategory = this.getView().byId("idCategory").getSelectedItem();
-                const sPrice = this.getView().byId("idPrice").getValue();
-                const sReleaseDate = this.getView().byId("idReleaseDate").getDateValue();
-                const sDisconDate = this.getView().byId("idDisconDate").getDateValue();
+            onPressCreateNewProduct: function () {
+                const oData = this.getView().getModel("input").getData();
 
                 this.getView().byId("idProductList").addItem(new ObjectListItem({
-                    title: sProductName,
-                    number: sPrice,
+                    title: oData.Name,
+                    number: oData.Price,
                     numberUnit: "INR",
                     attributes: [
                         new ObjectAttribute({
                             title: "Category",
-                            text: oCategory.getText()
+                            text: oData.Category
                         }),
                         new ObjectAttribute({
                             title: "Release Date",
-                            text: sReleaseDate
+                            text: oData.ReleaseDate
                         })
                     ],
                     firstStatus: new ObjectStatus({
                         title: "Stock",
-                        text: this._getAvailabilityText(sDisconDate),
-                        state: this._getAvailabilityState(sDisconDate)
+                        text: this._getAvailabilityText(oData.DiscontinuedDate),
+                        state: this._getAvailabilityState(oData.DiscontinuedDate)
                     })
                 }));
 

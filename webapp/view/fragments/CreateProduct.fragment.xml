@@ -27,6 +27,7 @@
                     id="idProductName"
                     placeholder="{i18n>productInputPlaceHolder}"
                     value="{input>/Name}"
+                    valueLiveUpdate="true"
                 />
                 <Label text="{i18n>categoryDropDown}" />
                 <ComboBox
@@ -58,6 +59,7 @@
                     id="idPrice"
                     type="Number"
                     value="{input>/Price}"
+                    valueLiveUpdate="true"
                 />
                 <Input
                     value="INR"
@@ -69,15 +71,15 @@
                 </Input>
                 <core:Title text="{i18n>datesTitle}" />
                 <Label text="{i18n>producutReleaseDatePlaceHolder}" />
-                <DatePicker id="idReleaseDate" value="{input>/ReleaseDate}"/>
+                <DatePicker id="idReleaseDate" dateValue="{input>/ReleaseDate}"/>
                 <Label text="{i18n>productDisconDate}" />
-                <DatePicker id="idDisconDate" value="{input>/DiscontinuedDate}"/>
+                <DatePicker id="idDisconDate" dateValue="{input>/DiscontinuedDate}"/>
             </form:SimpleForm>
         </content>
         <beginButton>
             <Button
                 text="{i18n>createDialog}"
-                press="onPressAddToCart"
+                press="onPressCreateNewProduct"
                 type="Emphasized"
             />
         </beginButton>
