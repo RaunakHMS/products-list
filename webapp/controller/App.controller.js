@@ -6,12 +6,14 @@ sap.ui.define([
     "sap/m/ObjectStatus",
     "sap/ui/core/ValueState",
     "sap/ui/core/Fragment",
-    "com/raunak/products/model/models"
+    "com/raunak/products/model/models",
+    "com/raunak/products/model/formatter"
 ],
-    function (Controller, MessageToast, ObjectListItem, ObjectAttribute, ObjectStatus, ValueState, Fragment, models) {
+    function (Controller, MessageToast, ObjectListItem, ObjectAttribute, ObjectStatus, ValueState, Fragment, models, formatter) {
         'use strict'
 
         return Controller.extend("com.raunak.products.controller.App", {
+            formatter: formatter,
 
             onPressCreateNewProduct: function () {
                 const oData = this.getView().getModel("input").getData();
@@ -62,13 +64,5 @@ sap.ui.define([
             onPressCancelCreateDialog: function (oEvent) {
                 this._oCreateProductDialog.close();
             },
-
-            _getAvailabilityText(oDate) {
-                return oDate > new Date() ? "Available" : "UnAvailable";
-            },
-
-            _getAvailabilityState(oDate) {
-                return oDate > new Date() ? ValueState.Success : ValueState.Error;
-            }
         })
     })

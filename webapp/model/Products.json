@@ -26,7 +26,10 @@
     "Price": 22.55,
     "Currency": "EUR",
     "ReleaseDate": "2022-05-01T00:00:00.000Z",
-    "DiscontinuedDate": null
+    "DiscontinuedDate": null,
+    "Width": 20,
+    "Height": 30,
+    "Depth": 15
   }, {
     "Name": "HDMI Cable",
     "Category": "2",

@@ -21,22 +21,55 @@
                 >
                     <headerToolbar>
                         <Toolbar>
-                            <Title text="{i18n>listHeaderText}"></Title>
-                            <ToolbarSpacer></ToolbarSpacer>
-                            <Button icon="sap-icon://add" press="onPressAddNewProduct"></Button>
+                            <Title text="{i18n>listHeaderText}" />
+                            <ToolbarSpacer />
+                            <Button
+                                icon="sap-icon://add"
+                                press="onPressAddNewProduct"
+                            />
                         </Toolbar>
                     </headerToolbar>
-                    <ObjectListItem title="{product>Name}" number="{product>Price}" 
-                        numberUnit="{product>Currency}">
+                    <ObjectListItem
+                        title="{product>Name}"
+                        number="{
+                            parts: ['product>Price', 'product>Currency'],
+                            type: 'sap.ui.model.type.Currency',
+                            formatOptions: {
+                                showMeasure: false
+                            }
+                        }"
+                        numberUnit="{product>Currency}"
+                        numberState="{= ${product>Price} > 20 ? 'Warning' : 'None' }"
+                    >
                         <attributes>
-                            <ObjectAttribute title="Category" text="{product>Category}"></ObjectAttribute>
-                            <ObjectAttribute title="Release Date" text="{product>ReleaseDate}"></ObjectAttribute>
+                            <ObjectAttribute
+                                title="Category"
+                                text="{product>Category}"
+                            />
+                            <ObjectAttribute
+                                title="Release Date"
+                                text="{
+                                    path:'product>ReleaseDate',
+                                    type: 'sap.ui.model.type.Date',
+                                    formatOptions: {
+                                        source: { pattern: 'yyyy-MM-ddTHH:mm:ss.SSX' },
+                                        style: 'short'
+                                    }
+                                }"
+                            />
                         </attributes>
                         <firstStatus>
-                            <ObjectStatus 
+                            <ObjectStatus
                                 title="Stock"
-                                text="{product>DiscontinuedDate}"
-                            ></ObjectStatus>
+                                text="{
+                                    path: 'product>DiscontinuedDate',
+                                    formatter: '.formatter.formatAvailabilityText'
+                                }"
+                                state="{
+                                    path: 'product>DiscontinuedDate',
+                                    formatter:'.formatter.formatAvailabilityState'
+                                }"
+                            />
                         </firstStatus>
                     </ObjectListItem>
                 </List>
