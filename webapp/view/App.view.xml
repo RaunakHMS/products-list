@@ -57,6 +57,10 @@
                                     }
                                 }"
                             />
+                            <ObjectAttribute 
+                                visible="{= !!${product>Width} &amp;&amp; !!${product>Height} &amp;&amp; !!${product>Depth}}"
+                                text="{product>Width} x {product>Height} x {product>Depth} cm"
+                            />
                         </attributes>
                         <firstStatus>
                             <ObjectStatus

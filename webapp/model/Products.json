@@ -5,7 +5,10 @@
     "Price": 2.35,
     "Currency": "EUR",
     "ReleaseDate": "2022-08-03T00:00:00.000Z",
-    "DiscontinuedDate": null
+    "DiscontinuedDate": null,
+    "Width": 2,
+    "Height": 10,
+    "Depth": 4
   }, {
     "Name": "Red wine",
     "Category": "1",
