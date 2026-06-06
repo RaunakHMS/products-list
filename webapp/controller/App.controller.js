@@ -16,33 +16,24 @@ sap.ui.define([
             onPressCreateNewProduct: function () {
                 const oData = this.getView().getModel("input").getData();
 
-                this.getView().byId("idProductList").addItem(new ObjectListItem({
-                    title: oData.Name,
-                    number: oData.Price,
-                    numberUnit: "INR",
-                    attributes: [
-                        new ObjectAttribute({
-                            title: "Category",
-                            text: oData.Category
-                        }),
-                        new ObjectAttribute({
-                            title: "Release Date",
-                            text: oData.ReleaseDate
-                        })
-                    ],
-                    firstStatus: new ObjectStatus({
-                        title: "Stock",
-                        text: this._getAvailabilityText(oData.DiscontinuedDate),
-                        state: this._getAvailabilityState(oData.DiscontinuedDate)
-                    })
-                }));
+                const oProductModel = this.getView().getModel("product");
+                const aItems = oProductModel.getProperty("/items");
+
+                aItems.push(oData);
+
+                oProductModel.setProperty("/items", aItems);
 
                 this._oCreateProductDialog.close();
             },
 
             onProductDelete: function (oEvent) {
                 const oItem = oEvent.getParameter("listItem");
-                this.getView().byId("idProductList").removeItem(oItem);
+
+                const oModel = this.getView().getModel("product");
+                const iIndex = oItem.getBindingContext("product").getPath().split("/").pop();
+
+                oModel.getData().items.splice(iIndex, 1);
+                oModel.refresh();
             },
 
             onPressAddNewProduct: function (oEvent) {
